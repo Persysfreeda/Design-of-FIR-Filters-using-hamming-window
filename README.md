@@ -64,4 +64,4 @@ title('Frequency Response of Low Pass FIR Filter (Hamming)');
 
 
 # RESULT
-Thus, a Low Pass FIR Digital Filter was successfully designed using the Hanning window method in SCILAB.
+Thus, a Low Pass FIR Digital Filter was successfully designed using the Hamming window method in SCILAB.
