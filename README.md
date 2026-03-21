@@ -12,47 +12,56 @@
 
 # PROGRAM 
 ```
+clc;
 clear;
 close;
 
+// --- Filter Specifications ---
 M = 51;              // Filter length
 fc = 0.4;            // Normalized cutoff frequency (0 to 0.5)
 
-// Create Hanning window
+// --- Create Hamming Window ---
 n = 0:M-1;
-w = 0.5 - 0.5 * cos(2 * %pi * n / (M-1));
+w = 0.54 - 0.46 * cos(2 * %pi * n / (M-1));
 
-// Ideal impulse response for Low Pass Filter
+// --- Ideal Impulse Response (Low Pass FIR) ---
 hd = sin(2 * %pi * fc * (n - (M-1)/2)) ./ (n - (M-1)/2);
-hd((M-1)/2 + 1) = 2 * %pi * fc;  // fix center value
 
-// Apply window
+// Fix division by zero at center
+hd((M-1)/2 + 1) = 2 * %pi * fc;
+
+// --- Apply Window ---
 h = hd .* w;
 
-// Normalize filter coefficients
+// --- Normalize Coefficients ---
 h = h / sum(h);
 
-// Display coefficients
+// --- Display Coefficients ---
+disp("Filter Coefficients:");
 disp(h);
 
-// Plot impulse response
+// --- Plot Impulse Response ---
 subplot(2,1,1);
 plot(h);
 xlabel('Samples');
 ylabel('Amplitude');
-title('Impulse Response of Low Pass FIR Filter using Hanning Window');
+title('Impulse Response of Low Pass FIR Filter using Hamming Window');
 
-// Frequency response
+// --- Frequency Response ---
 [H, f] = frmag(h, 512);
+
 subplot(2,1,2);
 plot(f, H);
 xlabel('Normalized Frequency');
 ylabel('Magnitude');
-title('Frequency Response of Low Pass FIR Filter');
+title('Frequency Response of Low Pass FIR Filter (Hamming)');
+
+
 ```
 
 # OUTPUT
-<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/79e82e1d-91f2-4e07-b750-e787ed509950" />
+<img width="763" height="663" alt="image" src="https://github.com/user-attachments/assets/f68cc091-ff86-4ef1-af2c-2b13054f7308" />
+
 
 # RESULT
 Thus, a Low Pass FIR Digital Filter was successfully designed using the Hanning window method in SCILAB.
