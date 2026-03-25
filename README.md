@@ -60,7 +60,9 @@ title('Frequency Response of Low Pass FIR Filter (Hamming)');
 ```
 
 # OUTPUT
-<img width="763" height="663" alt="image" src="https://github.com/user-attachments/assets/f68cc091-ff86-4ef1-af2c-2b13054f7308" />
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/4e26ad68-9dc5-4b22-b888-9479c68957fb" />
+<img width="1916" height="1198" alt="image" src="https://github.com/user-attachments/assets/aa6e6d70-1c07-453c-b8a3-7f1b6ab95d5e" />
+
 
 
 # RESULT
